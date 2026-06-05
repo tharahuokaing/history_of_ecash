@@ -1,3 +1,60 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCash and Cashtab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<style>
+    .meta-voice-btn {
+        position: relative;
+        background: rgba(0, 255, 255, 0.1);
+        border: 2px solid #00ffff;
+        color: #00ffff;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        overflow: visible;
+    }
+
+    .meta-voice-btn:hover {
+        background: rgba(0, 255, 255, 0.2);
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+        transform: translateY(-2px);
+    }
+
+    .meta-voice-btn .icon {
+        font-size: 20px;
+        filter: drop-shadow(0 0 5px #00ffff);
+    }
+
+    /* Synthetic Pulse Effect */
+    .pulse-ring {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        border-radius: 50px;
+        border: 2px solid #00ffff;
+        animation: meta-pulse 2s infinite;
+        opacity: 0;
+    }
+
+    @keyframes meta-pulse {
+        0% { transform: scale(1); opacity: 0.5; }
+        100% { transform: scale(1.3); opacity: 0; }
+    }
+</style>
 <section class="article">
     <h1>A Brief History of eCash and Cashtab</h1>
 
