@@ -5,165 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eCash and Cashtab</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-<style>
-    :root {
-        --primary: #00ffff;
-        --bg-dark: #0b0f14;
-        --card-bg: rgba(255, 255, 255, 0.03);
-        --text: #e6f7ff;
-        --muted: rgba(230, 247, 255, 0.7);
-    }
 
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: radial-gradient(circle at top, #0f1a24, var(--bg-dark));
-        color: var(--text);
-        line-height: 1.7;
-    }
-
-    .article {
-        max-width: 800px;
-        margin: 60px auto;
-        padding: 30px;
-        background: var(--card-bg);
-        border: 1px solid rgba(0, 255, 255, 0.15);
-        border-radius: 16px;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 0 40px rgba(0, 255, 255, 0.08);
-    }
-
-    .article h1 {
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 25px;
-        color: var(--primary);
-        text-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
-    }
-
-    .article p {
-        margin-bottom: 18px;
-        color: var(--muted);
-        font-size: 16px;
-    }
-
-    .article strong {
-        color: var(--primary);
-    }
-
-    code {
-        background: rgba(0, 255, 255, 0.08);
-        padding: 2px 6px;
-        border-radius: 6px;
-        color: var(--primary);
-        font-size: 0.95em;
-    }
-
-    /* Button */
-    .meta-voice-btn {
-        position: relative;
-        background: rgba(0, 255, 255, 0.08);
-        border: 1.5px solid var(--primary);
-        color: var(--primary);
-        padding: 12px 22px;
-        font-size: 15px;
-        font-weight: 600;
-        border-radius: 999px;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: all 0.25s ease;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
-        overflow: hidden;
-    }
-
-    .meta-voice-btn:hover {
-        transform: translateY(-3px);
-        background: rgba(0, 255, 255, 0.15);
-        box-shadow: 0 0 30px rgba(0, 255, 255, 0.35);
-    }
-
-    .meta-voice-btn .icon {
-        font-size: 18px;
-        filter: drop-shadow(0 0 6px var(--primary));
-    }
-
-    /* Pulse effect */
-    .pulse-ring {
-        position: absolute;
-        inset: 0;
-        border-radius: 999px;
-        border: 2px solid var(--primary);
-        animation: pulse 2s infinite;
-        opacity: 0;
-    }
-
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-            opacity: 0.6;
+    <style>
+        :root {
+            --primary: #00ffff;
+            --bg-dark: #0b0f14;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text: #e6f7ff;
+            --muted: rgba(230, 247, 255, 0.7);
         }
-        100% {
-            transform: scale(1.4);
-            opacity: 0;
-        }
-    }
 
-    /* Responsive */
-    @media (max-width: 600px) {
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: radial-gradient(circle at top, #0f1a24, var(--bg-dark));
+            color: var(--text);
+            line-height: 1.7;
+        }
+
         .article {
-            margin: 20px;
-            padding: 20px;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 30px;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 255, 0.15);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.08);
         }
 
         .article h1 {
-            font-size: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--primary);
+            text-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
         }
-    }
-</style>
-    
-// 🛡️ ULTRA SECURE MODE - BLOCK ALL DEV TOOLS
-    (function() {
-      // Block right-click
-      document.addEventListener('contextmenu', e => {
-        e.preventDefault(); e.stopImmediatePropagation();
-        document.body.innerHTML = '<div style="background:black;color:#f00;font-family:monospace;text-align:center;padding-top:30vh;font-size:2em;">🚫 ACCESS DENIED</div>';
-        return false;
-      });
 
-      // Block ALL dev shortcuts
-      document.addEventListener('keydown', e => {
-        const blocked = ['F12', 'F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11',
-                        'KeyI', 'KeyU', 'KeyS', 'KeyC'].includes(e.code) ||
-                       (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'i')) ||
-                       (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J'));
-        if (blocked) {
-          e.preventDefault(); e.stopImmediatePropagation();
-          document.title = '🚫 SECURE MODE ACTIVE';
-          return false;
+        .article p {
+            margin-bottom: 18px;
+            color: var(--muted);
+            font-size: 16px;
         }
-      }, true);
 
-      // DevTools detection loop
-      setInterval(() => {
-        if (window.outerHeight - window.innerHeight > 200 || 
-            window.outerWidth - window.innerWidth > 200 ||
-            (window.console && window.console.profiles)) {
-          document.body.innerHTML = '<div style="background:#000;color:#f00;font-family:monospace;text-align:center;padding-top:30vh;font-size:3em;">🕵️ DEVELOPER TOOLS DETECTED<br>DATA TERMINATED</div>';
+        .article strong {
+            color: var(--primary);
         }
-      }, 500);
 
-      // Disable text selection
-      document.addEventListener('selectstart', e => e.preventDefault());
-      document.addEventListener('dragstart', e => e.preventDefault());
-    })();
-    
+        code {
+            background: rgba(0, 255, 255, 0.08);
+            padding: 2px 6px;
+            border-radius: 6px;
+            color: var(--primary);
+            font-size: 0.95em;
+        }
+
+        /* Button */
+        .meta-voice-btn {
+            position: relative;
+            background: rgba(0, 255, 255, 0.08);
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 22px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 999px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.25s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+            overflow: hidden;
+        }
+
+        .meta-voice-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(0, 255, 255, 0.15);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.35);
+        }
+
+        .meta-voice-btn .icon {
+            font-size: 18px;
+            filter: drop-shadow(0 0 6px var(--primary));
+        }
+
+        .pulse-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            border: 2px solid var(--primary);
+            animation: pulse 2s infinite;
+            opacity: 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+
+        @media (max-width: 600px) {
+            .article {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            .article h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
 <section class="article">
     <h1>A Brief History of eCash and Cashtab</h1>
 
@@ -178,32 +135,71 @@
         In the cryptocurrency era, <strong>eCash (XEC)</strong> emerged from the
         Bitcoin ecosystem. On <strong>November 15, 2020</strong>, the Bitcoin Cash
         ABC (BCHA) network was created following a split from Bitcoin Cash.
-        Later, on <strong>July 1, 2021</strong>, Bitcoin Cash ABC officially
-        rebranded to <strong>eCash (XEC)</strong>. The rebrand introduced a new
-        identity, a new ticker symbol (XEC), and the <code>ecash:</code> address
-        format while maintaining the same blockchain.
+        Later, on <strong>July 1, 2021</strong>, it rebranded to <strong>eCash (XEC)</strong>,
+        introducing a new identity and the <code>ecash:</code> address format.
     </p>
 
     <p>
-        To support the eCash network, the development team launched
-        <strong>Cashtab</strong>, the official non-custodial wallet for eCash.
-        Cashtab allows users to store, send, and receive XEC while maintaining
-        full control of their funds.
+        To support the network, the development team launched <strong>Cashtab</strong>,
+        a non-custodial wallet that allows users to store, send, and receive XEC
+        while maintaining full control of their funds.
     </p>
 
     <p>
-        One of Cashtab's most important features is the ability to
-        <strong>import an existing wallet using a seed phrase</strong>.
-        A seed phrase is a series of recovery words generated when a wallet is
-        created. By entering the same seed phrase into Cashtab, users can
-        restore access to their wallet, balances, and transaction history on
-        another device. This system ensures that users remain in control of
-        their funds without relying on a centralized service.
+        Cashtab also supports wallet recovery using a <strong>seed phrase</strong>,
+        allowing users to restore access on any device securely without relying on
+        centralized services.
     </p>
 
     <p>
-        Today, eCash continues to develop as a digital payment network focused
-        on fast, secure, and scalable electronic cash for everyday use, while
-        Cashtab serves as one of its primary wallets for managing XEC assets.
+        Today, eCash continues evolving as a fast and scalable digital payment network,
+        while Cashtab remains one of its key wallet interfaces.
     </p>
-</section> 
+</section>
+
+<script>
+    // 🛡️ ULTRA SECURE MODE - BLOCK ALL DEV TOOLS
+    (function() {
+        // Block right-click
+        document.addEventListener('contextmenu', e => {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            document.body.innerHTML =
+                '<div style="background:black;color:#f00;font-family:monospace;text-align:center;padding-top:30vh;font-size:2em;">🚫 ACCESS DENIED</div>';
+            return false;
+        });
+
+        // Block dev shortcuts
+        document.addEventListener('keydown', e => {
+            const blocked =
+                ['F12','F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11'].includes(e.code) ||
+                (e.ctrlKey && ['u','s','i'].includes(e.key.toLowerCase())) ||
+                (e.ctrlKey && e.shiftKey && ['I','C','J'].includes(e.key));
+
+            if (blocked) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                document.title = '🚫 SECURE MODE ACTIVE';
+                return false;
+            }
+        }, true);
+
+        // DevTools detection loop
+        setInterval(() => {
+            if (
+                window.outerHeight - window.innerHeight > 200 ||
+                window.outerWidth - window.innerWidth > 200
+            ) {
+                document.body.innerHTML =
+                    '<div style="background:#000;color:#f00;font-family:monospace;text-align:center;padding-top:30vh;font-size:3em;">🕵️ DEVELOPER TOOLS DETECTED<br>DATA TERMINATED</div>';
+            }
+        }, 500);
+
+        // Disable selection & drag
+        document.addEventListener('selectstart', e => e.preventDefault());
+        document.addEventListener('dragstart', e => e.preventDefault());
+    })();
+</script>
+
+</body>
+</html>
